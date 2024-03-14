@@ -1,28 +1,24 @@
 <textarea id="source">
 
-<h1 class="slide-header">Title</h1>
+<h1 class="slide-header">Responding to Browser Events</h1>
 
-<span id=time-estimate class="color-grey-500">20 mins</span>
+<span id=time-estimate class="color-grey-500">60 mins</span>
 
 <p id="lesson-description">
-  In this lesson you'll learn blah blah blah
+  It all comes together when we use JavaScript to wait for user activity in the browser and respond by executing JavaScript functions that manipulate the DOM. In this lesson, we’ll work on attaching event listeners to DOM elements to allow our webpages to intelligently interact with user input.
 </p>
 
 <h5 id="topics-header" class="color-grey-500">Topics</h5>
 
-Topic # 1
+Event Listeners
 
 <hr>
 
-Topic #2
+Callback Functions
 
 <hr>
 
-Topic #3
-
-<hr>
-
-<a href="https://ga-waite.s3.amazonaws.com/production/sanitized-pdfs/introduction-to-html-2.pdf" target="_blank" download="introduction_to_html_study_guide.pdf" class="ant-btn" data-trackable="true" data-track-category="study guide" data-track-section="lesson page" data-track-action="download study guide"><span role="img" class="anticon"><svg viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false" class=""><g class="download_svg__nc-icon-wrapper"><path d="M8 12c.3 0 .5-.1.7-.3L14.4 6 13 4.6l-4 4V0H7v8.6l-4-4L1.6 6l5.7 5.7c.2.2.4.3.7.3z"></path><path data-color="color-2" d="M1 14h14v2H1z"></path></g></svg></span><span> Download Study Guide</span></a>
+<a href="https://ga-create-api.s3.amazonaws.com/studyguides/responding-to-browser-events-216c34.pdf" target="_blank" download="responding_to_browser_events_study_guide.pdf" class="ant-btn" data-trackable="true" data-track-category="study guide" data-track-section="lesson page" data-track-action="download study guide"><span role="img" class="anticon"><svg viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false" class=""><g class="download_svg__nc-icon-wrapper"><path d="M8 12c.3 0 .5-.1.7-.3L14.4 6 13 4.6l-4 4V0H7v8.6l-4-4L1.6 6l5.7 5.7c.2.2.4.3.7.3z"></path><path data-color="color-2" d="M1 14h14v2H1z"></path></g></svg></span><span> Download Study Guide</span></a>
 
 ---
 
@@ -31,161 +27,128 @@ Topic #3
 <p>By the end of this lesson, you'll be able to:</p>
 
 <ul>
-  <li>Objective 1</li>
-  <li>Objective 2</li>
-  <li>Objective 3</li>
+  <li>Use JavaScript to respond to user actions in the browser.</li>
+  <li>Update elements on a webpage based on user behavior.</li>
 </ul>
 
 ---
 
-<h1 class="slide-header">Video Content</h1>
-<!--
-  WISTIA EXAMPLE. REPLACE 11dit621rx with the id
--->
-<div class="wistia_embed wistia_async_11dit621rx wistia_embed_initialized" id="wistia-11dit621rx-1"
-  style="width: 100%; height: 50%;">
-  <div id="wistia_chrome_23" class="w-chrome notranslate" tabindex="-1">
-    <div id="wistia_grid_57_wrapper" style="display: block; width: 630px; height: 354.375px;">
-      <div id="wistia_grid_57_above" style="height: 0px; font-size: 0px; line-height: 0px;"> </div>
-      <div id="wistia_grid_57_main" style="width: 630px; left: 0px; height: 354.375px; margin-top: 0px;">
-        <div id="wistia_grid_57_center" style="width: 100%; height: 100%;">
-          <div class="w-video-wrapper w-css-reset"
-            style="height: 100%; position: absolute; top: 0px; width: 100%; opacity: 1;">
-            <video id="wistia_simple_video_135" crossorigin="anonymous"
-              poster="https://fast.wistia.com/assets/images/blank.gif" aria-label="Video" controlslist="nodownload"
-              playsinline="" preload="auto" type="video/m3u8" x-webkit-airplay="allow"
-              style="background: transparent; display: block; height: 100%; max-height: none; max-width: none; position: static; visibility: visible; width: 100%; object-fit: contain;"></video>
-          </div>
-          <div class="w-ui-container"
-            style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%; opacity: 1;">
-            <div class="w-vulcan-v2 w-css-reset" id="w-vulcan-v2-56"
-              style="border-radius: 0px; box-sizing: border-box; cursor: default; direction: ltr; height: 100%; left: 0px; position: absolute; visibility: visible; top: 0px; width: 100%;">
-              <div class="w-vulcan--background w-css-reset"
-                style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;">
-                <div class="w-css-reset" data-handle="statusBar"></div>
-                <div class="w-css-reset" data-handle="backgroundFocus"><button
-                    aria-label="Play Video: A Brief History of the Web" class="w-css-reset w-vulcan-v2-button"
-                    tabindex="0" style="width: 0px; height: 0px; pointer-events: none;"></button></div>
-              </div>
-              <div aria-live="polite" class="w-vulcan--aria-live w-css-reset" aria-atomic="true"
-                style="position: absolute; left: -99999em;"></div>
-              <div class="w-vulcan-overlays-table w-css-reset"
-                style="display: table; pointer-events: none; position: absolute; width: 100%;">
-                <div class="w-vulcan-overlays--left w-css-reset"
-                  style="display: table-cell; vertical-align: top; position: relative; width: 0px;">
-                  <div class="w-css-reset" style="height: 321.375px;"></div>
-                </div>
-                <div class="w-vulcan-overlays--center w-css-reset"
-                  style="display: table-cell; vertical-align: top; position: relative; width: 100%;">
-                  <div class="w-css-reset" style="height: 321.375px;">
-                    <div class="w-css-reset" data-handle="bigPlayButton" style="pointer-events: auto;">
-                      <div class="w-bpb-wrapper w-css-reset w-css-reset-tree"
-                        style="border-radius: 0px; display: none; left: calc(50%); margin-left: -61.5234px; margin-top: -39.375px; overflow: hidden; position: absolute; top: calc(50% + 0px);">
-                        <button class="w-big-play-button w-css-reset-button-important w-vulcan-v2-button" tabindex="0"
-                          type="button" style="cursor: pointer; height: 78.75px; box-shadow: none; width: 123.047px;">
-                          <div
-                            style="background: rgb(1, 121, 145); display: block; left: 0px; height: 78.75px; mix-blend-mode: darken; position: absolute; top: 0px; width: 123.047px;">
-                          </div>
-                          <div
-                            style="background-color: rgba(1, 121, 145, 0.7); height: 78.75px; left: 0px; position: absolute; top: 0px; transition: background-color 150ms ease 0s; width: 123.047px;">
-                          </div><svg x="0px" y="0px" viewBox="0 0 125 80" enable-background="new 0 0 125 80"
-                            aria-hidden="true" alt=""
-                            style="fill: rgb(255, 255, 255); height: 78.75px; left: 0px; stroke-width: 0px; top: 0px; width: 100%; position: absolute;">
-                            <rect fill-rule="evenodd" clip-rule="evenodd" fill="none" width="125" height="80"></rect>
-                            <polygon fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" points="53,22 53,58 79,40">
-                            </polygon>
-                          </svg>
-                        </button>
-                      </div>
-                    </div>
-                    <div class="w-css-reset" data-handle="clickForSoundButton" style="pointer-events: auto;">
-  <div class="w-css-reset w-css-reset-tree" data-handle="click-for-sound-backdrop"
-    style="display: none; height: 100%; left: 0px; pointer-events: auto; position: absolute; top: 0px; width: 100%;">
-    <button aria-label="Click for sound" class="w-vulcan-v2-button click-for-sound-btn"
-      style="background: rgba(0, 0, 0, 0.8); border: 2px solid transparent; border-radius: 60px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; outline: none; pointer-events: auto; position: absolute; right: 20.1484px; top: 20.1484px; max-width: 589.703px;">
-      <div
-        style="display: flex; align-items: center; justify-content: flex-end; white-space: nowrap; overflow: hidden; max-width: 0px; transition: max-width 200ms ease 0s;">
-        <span
-          style="color: rgb(255, 255, 255); font-family: WistiaPlayerInter, Helvetica, sans-serif; font-size: 15px; font-weight: 500; padding-left: 1em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 630px;">Click
-          for sound</span>
-      </div><svg viewBox="0 0 237 237" width="51.6796875" height="51.6796875"></svg>
-    </button>
-</div>
-</div>
-</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- YOUTUBE -->
-<!-- VIMEO -->
-<details>
-  <summary>Transcript</summary>
-  
-  <p class="transcript-text">
-    Lorem ipsum etc etc
-  </p>
-</details>
+<h1 class="slide-header">Event Listeners</h1>
+
+**Events** are user actions that occur on your webpage, such as hovering over an element, clicking a link, or scrolling down a page.
+
+When you add a listener (which is a function) to an event, you get an **event listener** (also called **event handlers**). This is how the browser knows to respond to user actions. Your browser “listens” for an event to take place, then responds in whatever way you tell it to.
+
+An event listener begins with `on`. Here are a few commonly used ones:
+
+```js
+onload  // When the page loads.
+onclick  // When a user clicks something.
+onmouseover  // When a user hovers their mouse over something.
+onfocus  // When a user puts the cursor on a form field.
+```
+
+To tell the browser which element to listen to, we’ll bring back the DOM access method we learned about in the last lesson: `querySelector()`. (We can only attach an event listener to an individual element, so we wouldn’t use `querySelectorAll()` here.)
 
 ---
 
+<h1 class="slide-header">onclick</h1>
 
-<h1 class="slide-header">Code Challenge</h1>
+Take `onclick`: It refers to an element's event listener, which will be triggered when the element is clicked. The general format looks like this:
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Code Challenge Test" src="https://codepen.io/Ryan-Brodsky/embed/VwNwXqq?default-tab=html%2Cresult&editable=true" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
-    See the Pen <a href="https://codepen.io/Ryan-Brodsky/pen/VwNwXqq">
-    Code Challenge Test</a> by Ryan Brodsky (<a href="https://codepen.io/Ryan-Brodsky">@Ryan-Brodsky</a>)
-    on <a href="https://codepen.io">CodePen</a>.
-  </iframe>
+```js
+elementToGrab.onclick = function() {
+   // Code that should run 
+};
+```
 
----
+Let’s say we created a function named `respondToLoginAttempt` that throws a notification when the login element is clicked. The code snippet would look like this: 
 
-<h1 class="slide-header">Multiple Choice Question</h1>
+```js
+document.querySelector('#login').onclick = respondToLoginAttempt;
+```
 
-<fieldset>
-  <legend>Please select one of the following</legend>
-  <input type="radio" name="action" id="track" value="track" correct="true"/><label for="track">Correct Answer</label><br />
-  <input type="radio" name="action" id="event" value="event"  /><label for="event">Incorrect</label><br />
-  <input type="radio" name="action" id="message" value="message" /><label for="message">Incorrect</label><br />
-</fieldset>
-<button class="ant-btn ant-btn-primary multiple-choice-radio-submit">Submit Answer</button>
-
-<fieldset>
-  <legend>Please select all that apply</legend>
-  <input type="checkbox" id="uniqueAnswer" name="unique" correct="true"/><label for="uniqueAnswer">Correct Answer</label><br />
-  <input type="checkbox" id="uniqueAnswer2" name="unique2" /><label for="uniqueAnswer2">Incorrect Answer</label><br />
-  <input type="checkbox" id="uniqueAnswer3" name="unique3" correct="true"/><label for="uniqueAnswer3">Correct Answer</label><br />
-</fieldset>
-
-<button class="ant-btn ant-btn-primary multiple-choice-checkbox-submit">Submit Answer</button>
+In plain English, this is saying, “When the login element is clicked, run the function called `respondToLoginAttempt`.”
 
 ---
 
-<h1 class="slide-header">Cards Slide</h1>
+<h1 class="slide-header">Another Method: addEventListener</h1>
 
-<details>
-  <summary>Vocabulary Term</summary>
-  
-  <p class="transcript-text">
-    Definition when "flipped" by the student
-  </p>
-</details>
+You can also add event listeners using a method called `addEventListener()`. Similar to `onclick`, this method tells elements to wait for something to happen in the browser and then execute a specific function when it does.
 
-<details>
-  <summary>Vocabulary Term</summary>
-  
-  <p class="transcript-text">
-    Definition when "flipped" by the student
-  </p>
-</details>
+For example, forms can wait for a user to submit data and then run validation functions to check the input. Or, buttons can wait for a user to click them and then remove certain elements from the page.
+
+The general format looks like this: `elementToGrab().addEventListener(event, callback);`. Notice how this method takes two parameters:
+1. The name of the browser event being listened for.
+2. The callback function to be executed once that event occurs.
+
+In this simple example, a clicked button will print a message to the console:
+
+```js
+function sayHello() {
+    console.log("Hello!");
+}
+document.querySelector('button').addEventListener('click', sayHello);
+```
+
+---
+
+<h1 class="slide-header">Which One?</h1>
+
+Let’s compare what it’s like to use `onclick` and `addEventListener()`.
+
+In an earlier example, we used a function called `respondToLoginAttempt`. If we use `onclick`, the code would look like this:
+
+`document.querySelector('#login').onclick = respondToLoginAttempt;`
+
+
+If we use `addEventListener()`, the code would look like this: 
+
+`document.querySelector('#login').addEventListener('click', respondToLoginAttempt);`
+
+A key difference is that `onclick` will **overwrite any previous click listeners** on the element, whereas `addEventListener()` will preserve existing listeners.
+
+---
+
+<h1 class="slide-header">The Event Object</h1>
+
+When attaching functions as event listeners, you might want that function to use the element that was clicked. Maybe you want to grab the text that was clicked to store or update it.
+
+When defining the function, you can add a parameter, typically called `e`. This parameter, known as the **event object**, is passed into the function when it’s triggered. It contains helpful details about the event that triggered the function, including which element triggered the function: `e.target`.
+
+```javascript
+document.querySelector('#disappearing-button').onclick = function(e) {
+    console.log(e.target);
+    e.target.remove();
+}
+```
+
+---
+
+<h1 class="slide-header">Our First Event Listener</h1>
+
+Add an event listener to the button with the `generate-greeting` ID. When the button is clicked, trigger the `sayHello()` function.
+
+---
+
+<h1 class="slide-header">Express Yourself</h1>
+
+Instead of a pre-generated greeting, let’s get a bit fancier and add a text input that allows users to log whatever is on their mind! 
+
+When the user clicks the button with the ID of `generate-message`, log the value the user has typed into the input field. 
+
+---
+
+<h1 class="slide-header">So Much to Do...</h1>
+
+There’s always more to do when it comes to programming! In this code challenge, users should be able to fill in the input field, click the button, and have their text added to the list as a new item.
+
+When the user clicks the button with the ID of `generate-todo`, grab the value from the input with the ID of `new-todo`. Store the input value as the text of a new list item and append that new item to the unordered list with the class of `todos`.
 
 ---
 
 <h1 class="slide-header">Conclusion</h1>
+
+While it will take a lot more practice to get comfortable with these concepts, the JavaScript we've learned so far is enough to create rich and complex front-end applications.
 
 </textarea>
