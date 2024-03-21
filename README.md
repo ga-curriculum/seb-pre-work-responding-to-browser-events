@@ -129,6 +129,12 @@ document.querySelector('#disappearing-button').onclick = function(e) {
 
 Add an event listener to the button with the `generate-greeting` ID. When the button is clicked, trigger the `sayHello()` function.
 
+<iframe height="300" style="width: 100%;" scrolling="no" title="Our First Event Listener" src="https://codepen.io/GAmarketing/embed/ZEZBqZW?default-tab=js%2Cresult&editable=true" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/GAmarketing/pen/ZEZBqZW">
+  Our First Event Listener</a> by General Assembly (<a href="https://codepen.io/GAmarketing">@GAmarketing</a>)
+  on <a href="https://codepen.io">CodePen</a>.
+</iframe>
+
 ---
 
 <h1 class="slide-header">Express Yourself</h1>
@@ -137,6 +143,12 @@ Instead of a pre-generated greeting, let’s get a bit fancier and add a text in
 
 When the user clicks the button with the ID of `generate-message`, log the value the user has typed into the input field. 
 
+<iframe height="300" style="width: 100%;" scrolling="no" title="Express Yourself" src="https://codepen.io/GAmarketing/embed/rNbWqbM?default-tab=js%2Cresult&editable=true" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/GAmarketing/pen/rNbWqbM">
+  Express Yourself</a> by General Assembly (<a href="https://codepen.io/GAmarketing">@GAmarketing</a>)
+  on <a href="https://codepen.io">CodePen</a>.
+</iframe>
+
 ---
 
 <h1 class="slide-header">So Much to Do...</h1>
@@ -144,6 +156,12 @@ When the user clicks the button with the ID of `generate-message`, log the value
 There’s always more to do when it comes to programming! In this code challenge, users should be able to fill in the input field, click the button, and have their text added to the list as a new item.
 
 When the user clicks the button with the ID of `generate-todo`, grab the value from the input with the ID of `new-todo`. Store the input value as the text of a new list item and append that new item to the unordered list with the class of `todos`.
+
+<iframe height="300" style="width: 100%;" scrolling="no" title="So Much To Do" src="https://codepen.io/GAmarketing/embed/ExJNdJW?default-tab=js%2Cresult&editable=true" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/GAmarketing/pen/ExJNdJW">
+  So Much To Do</a> by General Assembly (<a href="https://codepen.io/GAmarketing">@GAmarketing</a>)
+  on <a href="https://codepen.io">CodePen</a>.
+</iframe>
 
 ---
 
