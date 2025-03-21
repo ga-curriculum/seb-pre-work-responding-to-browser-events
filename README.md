@@ -5,7 +5,10 @@
 <span id=time-estimate class="color-grey-500">60 mins</span>
 
 <p id="lesson-description">
-  It all comes together when we use JavaScript to wait for user activity in the browser and respond by executing JavaScript functions that manipulate the DOM. In this lesson, we’ll work on attaching event listeners to DOM elements to allow our webpages to intelligently interact with user input.
+It all comes together when we use JavaScript to <strong>listen for user actions in the browser</strong> and respond by running functions that manipulate the DOM.
+
+In this lesson, you’ll learn how to <strong>attach event listeners</strong> to DOM elements. This will allow your webpages to respond to user input — such as clicks, form submissions, and other interactions — making your pages dynamic and interactive.
+
 </p>
 
 <h5 id="topics-header" class="color-grey-500">Topics</h5>
@@ -18,116 +21,130 @@ Callback Functions
 
 <hr>
 
-<a href="https://ga-create-api.s3.amazonaws.com/studyguides/responding-to-browser-events-216c34.pdf" target="_blank" download="responding_to_browser_events_study_guide.pdf" class="ant-btn" data-trackable="true" data-track-category="study guide" data-track-section="lesson page" data-track-action="download study guide"><span role="img" class="anticon"><svg viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false" class=""><g class="download_svg__nc-icon-wrapper"><path d="M8 12c.3 0 .5-.1.7-.3L14.4 6 13 4.6l-4 4V0H7v8.6l-4-4L1.6 6l5.7 5.7c.2.2.4.3.7.3z"></path><path data-color="color-2" d="M1 14h14v2H1z"></path></g></svg></span><span> Download Study Guide</span></a>
-
----
-
-<h1 class="slide-header">Learning Objectives</h1>
-
-<p>By the end of this lesson, you'll be able to:</p>
-
-<ul>
-  <li>Use JavaScript to respond to user actions in the browser.</li>
-  <li>Update elements on a webpage based on user behavior.</li>
-</ul>
+<a href="./assets/responding_to_browser_events_study_guide.pdf" target="_blank" download="responding_to_browser_events_study_guide.pdf" class="ant-btn" data-trackable="true" data-track-category="study guide" data-track-section="lesson page" data-track-action="download study guide"><span role="img" class="anticon"><svg viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false" class=""><g class="download_svg__nc-icon-wrapper"><path d="M8 12c.3 0 .5-.1.7-.3L14.4 6 13 4.6l-4 4V0H7v8.6l-4-4L1.6 6l5.7 5.7c.2.2.4.3.7.3z"></path><path data-color="color-2" d="M1 14h14v2H1z"></path></g></svg></span><span> Download Study Guide</span></a>
 
 ---
 
 <h1 class="slide-header">Event Listeners</h1>
 
-**Events** are user actions that occur on your webpage, such as hovering over an element, clicking a link, or scrolling down a page.
+**Events** are actions that users take on your webpage, like clicking a button, hovering over an element, or scrolling the page.
 
-When you add a listener (which is a function) to an event, you get an **event listener** (also called **event handlers**). This is how the browser knows to respond to user actions. Your browser “listens” for an event to take place, then responds in whatever way you tell it to.
+When you attach a function to one of these events, you create an **event listener** (sometimes called an **event handler**). This allows the browser to “listen” for specific user actions and then respond by running the code you define.
 
-An event listener begins with `on`. Here are a few commonly used ones:
+Event listeners often start with `on`. Here are a few common examples:
 
 ```js
-onload  // When the page loads.
-onclick  // When a user clicks something.
-onmouseover  // When a user hovers their mouse over something.
-onfocus  // When a user puts the cursor on a form field.
+onload; // Runs when the page finishes loading.
+onclick; // Runs when a user clicks an element.
+onmouseover; // Runs when the user hovers the mouse over something.
+onfocus; // Runs when a form field receives focus.
 ```
 
-To tell the browser which element to listen to, we’ll bring back the DOM access method we learned about in the last lesson: `querySelector()`. (We can only attach an event listener to an individual element, so we wouldn’t use `querySelectorAll()` here.)
+To attach an event listener to a specific element, you’ll use `querySelector()` to select that element. (We don’t use `querySelectorAll()` here because we attach event listeners to individual elements.)
 
 ---
 
 <h1 class="slide-header">onclick</h1>
 
-Take `onclick`: It refers to an element's event listener, which will be triggered when the element is clicked. The general format looks like this:
+The `onclick` event is used to run code when a specific element is clicked. The general format looks like this:
 
 ```js
-elementToGrab.onclick = function() {
-   // Code that should run 
+elementToGrab.onclick = function () {
+  // Code to run when the element is clicked
 };
 ```
 
-Let’s say we created a function named `respondToLoginAttempt` that throws a notification when the login element is clicked. The code snippet would look like this: 
+For example, if we have a function named `respondToLoginAttempt` that shows a message when someone clicks the login button, we could write:
 
 ```js
 document.querySelector('#login').onclick = respondToLoginAttempt;
 ```
 
-In plain English, this is saying, “When the login element is clicked, run the function called `respondToLoginAttempt`.”
+In other words: “When the element with the ID `login` is clicked, run the `respondToLoginAttempt` function.”
 
 ---
 
 <h1 class="slide-header">Another Method: addEventListener</h1>
 
-You can also add event listeners using a method called `addEventListener()`. Similar to `onclick`, this method tells elements to wait for something to happen in the browser and then execute a specific function when it does.
+Another common way to add event listeners is by using the `addEventListener()` method. Like `onclick`, this tells the browser to wait for a certain event and then run a function when that event happens.
 
-For example, forms can wait for a user to submit data and then run validation functions to check the input. Or, buttons can wait for a user to click them and then remove certain elements from the page.
+For example, a form can wait for a user to submit it and then run validation code. A button can wait to be clicked and then trigger changes on the page.
 
-The general format looks like this: `elementToGrab().addEventListener(event, callback);`. Notice how this method takes two parameters:
-1. The name of the browser event being listened for.
-2. The callback function to be executed once that event occurs.
+The general format looks like this:
 
-In this simple example, a clicked button will print a message to the console:
+```js
+elementToGrab.addEventListener(event, callbackFunction);
+```
+
+This method takes two parameters:
+
+1. The name of the event (as a string), like `'click'` or `'submit'`.
+2. The function that should run when the event happens (this is called a **callback function**).
+
+Here’s a simple example where clicking a button prints a message in the console:
 
 ```js
 function sayHello() {
-    console.log("Hello!");
+  console.log('Hello!');
 }
 document.querySelector('button').addEventListener('click', sayHello);
 ```
 
 ---
 
-<h1 class="slide-header">Which One?</h1>
+<h1 class="slide-header">Which One Should You Use?</h1>
 
-Let’s compare what it’s like to use `onclick` and `addEventListener()`.
+You might be wondering when to use `onclick` and when to use `addEventListener()`.
 
-In an earlier example, we used a function called `respondToLoginAttempt`. If we use `onclick`, the code would look like this:
+Let’s compare them with the same example using a function called `respondToLoginAttempt`:
 
-`document.querySelector('#login').onclick = respondToLoginAttempt;`
+Using `onclick`:
 
+```js
+document.querySelector('#login').onclick = respondToLoginAttempt;
+```
 
-If we use `addEventListener()`, the code would look like this: 
+Using `addEventListener()`:
 
-`document.querySelector('#login').addEventListener('click', respondToLoginAttempt);`
+```js
+document
+  .querySelector('#login')
+  .addEventListener('click', respondToLoginAttempt);
+```
 
-A key difference is that `onclick` will **overwrite any previous click listeners** on the element, whereas `addEventListener()` will preserve existing listeners.
+**The key difference:**
+
+- **`onclick` can only store one click event handler.** If you set another `onclick` later, it will overwrite the first one.
+- **`addEventListener()` allows multiple event listeners** on the same element without overwriting each other.
 
 ---
 
 <h1 class="slide-header">The Event Object</h1>
 
-When attaching functions as event listeners, you might want that function to use the element that was clicked. Maybe you want to grab the text that was clicked to store or update it.
+Sometimes you’ll want your event-handling function to know more about the event — for example, which element was clicked.
 
-When defining the function, you can add a parameter, typically called `e`. This parameter, known as the **event object**, is passed into the function when it’s triggered. It contains helpful details about the event that triggered the function, including which element triggered the function: `e.target`.
+When your callback function is triggered, JavaScript passes it an **event object** (usually called `e` or `event`). This object contains helpful information about what happened, including the element that triggered the event (`e.target`).
+
+Here’s an example where clicking a button will log the element and then remove it from the page:
 
 ```javascript
-document.querySelector('#disappearing-button').onclick = function(e) {
-    console.log(e.target);
-    e.target.remove();
-}
+document.querySelector('#disappearing-button').onclick = function (e) {
+  console.log(e.target); // Logs the clicked button
+  e.target.remove(); // Removes the button from the page
+};
 ```
+
+Using the event object makes your functions more flexible and dynamic.
 
 ---
 
 <h1 class="slide-header">Our First Event Listener</h1>
 
-Add an event listener to the button with the `generate-greeting` ID. When the button is clicked, trigger the `sayHello()` function.
+**1. Select the button with the ID of `generate-greeting`.**  
+**2. Add an event listener to this button.**  
+**3. When the button is clicked, run the `sayHello()` function.**
+
+This will help you practice adding a basic event listener.
 
 <iframe height="300" style="width: 100%;" scrolling="no" title="Our First Event Listener" src="https://codepen.io/GAmarketing/embed/ZEZBqZW?default-tab=js%2Cresult&editable=true" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href="https://codepen.io/GAmarketing/pen/ZEZBqZW">
@@ -139,9 +156,12 @@ Add an event listener to the button with the `generate-greeting` ID. When the bu
 
 <h1 class="slide-header">Express Yourself</h1>
 
-Instead of a pre-generated greeting, let’s get a bit fancier and add a text input that allows users to log whatever is on their mind! 
+**1. Select the button with the ID of `generate-message`.**  
+**2. Add an event listener to this button.**  
+**3. When the button is clicked, grab the value from the text input field.**  
+**4. Log that value to the console.**
 
-When the user clicks the button with the ID of `generate-message`, log the value the user has typed into the input field. 
+This will let you practice getting user input and responding to a click event.
 
 <iframe height="300" style="width: 100%;" scrolling="no" title="Express Yourself" src="https://codepen.io/GAmarketing/embed/rNbWqbM?default-tab=js%2Cresult&editable=true" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href="https://codepen.io/GAmarketing/pen/rNbWqbM">
@@ -153,9 +173,13 @@ When the user clicks the button with the ID of `generate-message`, log the value
 
 <h1 class="slide-header">So Much to Do...</h1>
 
-There’s always more to do when it comes to programming! In this code challenge, users should be able to fill in the input field, click the button, and have their text added to the list as a new item.
+**1. Select the button with the ID of `generate-todo`.**  
+**2. Add an event listener to this button.**  
+**3. When the button is clicked, grab the value from the input with the ID of `new-todo`.**  
+**4. Create a new list item (`<li>`) element with that value as its text.**  
+**5. Append the new list item to the unordered list with the class of `todos`.**
 
-When the user clicks the button with the ID of `generate-todo`, grab the value from the input with the ID of `new-todo`. Store the input value as the text of a new list item and append that new item to the unordered list with the class of `todos`.
+This will help you practice combining user input, creating new elements, and adding them to the page.
 
 <iframe height="300" style="width: 100%;" scrolling="no" title="So Much To Do" src="https://codepen.io/GAmarketing/embed/ExJNdJW?default-tab=js%2Cresult&editable=true" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href="https://codepen.io/GAmarketing/pen/ExJNdJW">
@@ -167,6 +191,8 @@ When the user clicks the button with the ID of `generate-todo`, grab the value f
 
 <h1 class="slide-header">Conclusion</h1>
 
-While it will take a lot more practice to get comfortable with these concepts, the JavaScript we've learned so far is enough to create rich and complex front-end applications.
+While it will take practice to feel fully comfortable with these concepts, the JavaScript you’ve learned so far gives you the foundation to start building **dynamic and interactive front-end applications**.
+
+As you continue practicing, you’ll be able to combine these skills to create more complex and engaging web experiences.
 
 </textarea>
